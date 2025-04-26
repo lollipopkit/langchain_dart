@@ -65,6 +65,11 @@ sealed class ChatCompletionMessage with _$ChatCompletionMessage {
     /// The contents of the assistant message. Required unless `tool_calls` or `function_call` is specified.
     @JsonKey(includeIfNull: false) String? content,
 
+    /// The reasoning content of the assistant message. This is a detailed explanation of the model's reasoning
+    /// process, which may be useful for debugging or understanding the model's behavior.
+    @JsonKey(name: 'reasoning_content', includeIfNull: false)
+    String? reasoningContent,
+
     /// The refusal message by the assistant.
     @JsonKey(includeIfNull: false) String? refusal,
 

@@ -57760,6 +57760,8 @@ mixin _$ChatCompletionMessage {
     required TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -57791,6 +57793,8 @@ mixin _$ChatCompletionMessage {
     TResult? Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -57822,6 +57826,8 @@ mixin _$ChatCompletionMessage {
     TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58036,6 +58042,8 @@ class _$ChatCompletionSystemMessageImpl extends ChatCompletionSystemMessage {
     required TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58070,6 +58078,8 @@ class _$ChatCompletionSystemMessageImpl extends ChatCompletionSystemMessage {
     TResult? Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58104,6 +58114,8 @@ class _$ChatCompletionSystemMessageImpl extends ChatCompletionSystemMessage {
     TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58341,6 +58353,8 @@ class _$ChatCompletionUserMessageImpl extends ChatCompletionUserMessage {
     required TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58375,6 +58389,8 @@ class _$ChatCompletionUserMessageImpl extends ChatCompletionUserMessage {
     TResult? Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58409,6 +58425,8 @@ class _$ChatCompletionUserMessageImpl extends ChatCompletionUserMessage {
     TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58525,6 +58543,8 @@ abstract class _$$ChatCompletionAssistantMessageImplCopyWith<$Res>
   $Res call(
       {ChatCompletionMessageRole role,
       @JsonKey(includeIfNull: false) String? content,
+      @JsonKey(name: 'reasoning_content', includeIfNull: false)
+      String? reasoningContent,
       @JsonKey(includeIfNull: false) String? refusal,
       @JsonKey(includeIfNull: false) String? name,
       @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58555,6 +58575,7 @@ class __$$ChatCompletionAssistantMessageImplCopyWithImpl<$Res>
   $Res call({
     Object? role = null,
     Object? content = freezed,
+    Object? reasoningContent = freezed,
     Object? refusal = freezed,
     Object? name = freezed,
     Object? toolCalls = freezed,
@@ -58569,6 +58590,10 @@ class __$$ChatCompletionAssistantMessageImplCopyWithImpl<$Res>
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String?,
+      reasoningContent: freezed == reasoningContent
+          ? _value.reasoningContent
+          : reasoningContent // ignore: cast_nullable_to_non_nullable
               as String?,
       refusal: freezed == refusal
           ? _value.refusal
@@ -58631,6 +58656,8 @@ class _$ChatCompletionAssistantMessageImpl
   const _$ChatCompletionAssistantMessageImpl(
       {this.role = ChatCompletionMessageRole.assistant,
       @JsonKey(includeIfNull: false) this.content,
+      @JsonKey(name: 'reasoning_content', includeIfNull: false)
+      this.reasoningContent,
       @JsonKey(includeIfNull: false) this.refusal,
       @JsonKey(includeIfNull: false) this.name,
       @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58653,6 +58680,12 @@ class _$ChatCompletionAssistantMessageImpl
   @override
   @JsonKey(includeIfNull: false)
   final String? content;
+
+  /// The reasoning content of the assistant message. This is a detailed explanation of the model's reasoning
+  /// process, which may be useful for debugging or understanding the model's behavior.
+  @override
+  @JsonKey(name: 'reasoning_content', includeIfNull: false)
+  final String? reasoningContent;
 
   /// The refusal message by the assistant.
   @override
@@ -58691,7 +58724,7 @@ class _$ChatCompletionAssistantMessageImpl
 
   @override
   String toString() {
-    return 'ChatCompletionMessage.assistant(role: $role, content: $content, refusal: $refusal, name: $name, toolCalls: $toolCalls, functionCall: $functionCall, audio: $audio)';
+    return 'ChatCompletionMessage.assistant(role: $role, content: $content, reasoningContent: $reasoningContent, refusal: $refusal, name: $name, toolCalls: $toolCalls, functionCall: $functionCall, audio: $audio)';
   }
 
   @override
@@ -58701,6 +58734,8 @@ class _$ChatCompletionAssistantMessageImpl
             other is _$ChatCompletionAssistantMessageImpl &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.content, content) || other.content == content) &&
+            (identical(other.reasoningContent, reasoningContent) ||
+                other.reasoningContent == reasoningContent) &&
             (identical(other.refusal, refusal) || other.refusal == refusal) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality()
@@ -58712,8 +58747,16 @@ class _$ChatCompletionAssistantMessageImpl
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, role, content, refusal, name,
-      const DeepCollectionEquality().hash(_toolCalls), functionCall, audio);
+  int get hashCode => Object.hash(
+      runtimeType,
+      role,
+      content,
+      reasoningContent,
+      refusal,
+      name,
+      const DeepCollectionEquality().hash(_toolCalls),
+      functionCall,
+      audio);
 
   /// Create a copy of ChatCompletionMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -58740,6 +58783,8 @@ class _$ChatCompletionAssistantMessageImpl
     required TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58756,8 +58801,8 @@ class _$ChatCompletionAssistantMessageImpl
             ChatCompletionMessageRole role, String? content, String name)
         function,
   }) {
-    return assistant(
-        role, content, refusal, name, toolCalls, functionCall, audio);
+    return assistant(role, content, reasoningContent, refusal, name, toolCalls,
+        functionCall, audio);
   }
 
   @override
@@ -58775,6 +58820,8 @@ class _$ChatCompletionAssistantMessageImpl
     TResult? Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58791,8 +58838,8 @@ class _$ChatCompletionAssistantMessageImpl
             ChatCompletionMessageRole role, String? content, String name)?
         function,
   }) {
-    return assistant?.call(
-        role, content, refusal, name, toolCalls, functionCall, audio);
+    return assistant?.call(role, content, reasoningContent, refusal, name,
+        toolCalls, functionCall, audio);
   }
 
   @override
@@ -58810,6 +58857,8 @@ class _$ChatCompletionAssistantMessageImpl
     TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58828,8 +58877,8 @@ class _$ChatCompletionAssistantMessageImpl
     required TResult orElse(),
   }) {
     if (assistant != null) {
-      return assistant(
-          role, content, refusal, name, toolCalls, functionCall, audio);
+      return assistant(role, content, reasoningContent, refusal, name,
+          toolCalls, functionCall, audio);
     }
     return orElse();
   }
@@ -58886,6 +58935,8 @@ abstract class ChatCompletionAssistantMessage extends ChatCompletionMessage {
   const factory ChatCompletionAssistantMessage(
           {final ChatCompletionMessageRole role,
           @JsonKey(includeIfNull: false) final String? content,
+          @JsonKey(name: 'reasoning_content', includeIfNull: false)
+          final String? reasoningContent,
           @JsonKey(includeIfNull: false) final String? refusal,
           @JsonKey(includeIfNull: false) final String? name,
           @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -58908,6 +58959,11 @@ abstract class ChatCompletionAssistantMessage extends ChatCompletionMessage {
   @override
   @JsonKey(includeIfNull: false)
   String? get content;
+
+  /// The reasoning content of the assistant message. This is a detailed explanation of the model's reasoning
+  /// process, which may be useful for debugging or understanding the model's behavior.
+  @JsonKey(name: 'reasoning_content', includeIfNull: false)
+  String? get reasoningContent;
 
   /// The refusal message by the assistant.
   @JsonKey(includeIfNull: false)
@@ -59060,6 +59116,8 @@ class _$ChatCompletionToolMessageImpl extends ChatCompletionToolMessage {
     required TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -59094,6 +59152,8 @@ class _$ChatCompletionToolMessageImpl extends ChatCompletionToolMessage {
     TResult? Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -59128,6 +59188,8 @@ class _$ChatCompletionToolMessageImpl extends ChatCompletionToolMessage {
     TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -59349,6 +59411,8 @@ class _$ChatCompletionFunctionMessageImpl
     required TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -59383,6 +59447,8 @@ class _$ChatCompletionFunctionMessageImpl
     TResult? Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -59417,6 +59483,8 @@ class _$ChatCompletionFunctionMessageImpl
     TResult Function(
             ChatCompletionMessageRole role,
             @JsonKey(includeIfNull: false) String? content,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(includeIfNull: false) String? name,
             @JsonKey(name: 'tool_calls', includeIfNull: false)

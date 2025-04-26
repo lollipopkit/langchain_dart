@@ -2254,6 +2254,11 @@ components:
           type: string
           description: |
             The contents of the assistant message. Required unless `tool_calls` or `function_call` is specified.
+        reasoning_content:
+          type: string
+          description: |
+            The reasoning content of the assistant message. This is a detailed explanation of the model's reasoning 
+            process, which may be useful for debugging or understanding the model's behavior.
         refusal:
           nullable: true
           type: string

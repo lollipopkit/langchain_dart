@@ -4892,6 +4892,7 @@ _$ChatCompletionAssistantMessageImpl
                   _$ChatCompletionMessageRoleEnumMap, json['role']) ??
               ChatCompletionMessageRole.assistant,
           content: json['content'] as String?,
+          reasoningContent: json['reasoning_content'] as String?,
           refusal: json['refusal'] as String?,
           name: json['name'] as String?,
           toolCalls: (json['tool_calls'] as List<dynamic>?)
@@ -4913,6 +4914,8 @@ Map<String, dynamic> _$$ChatCompletionAssistantMessageImplToJson(
     <String, dynamic>{
       'role': _$ChatCompletionMessageRoleEnumMap[instance.role]!,
       if (instance.content case final value?) 'content': value,
+      if (instance.reasoningContent case final value?)
+        'reasoning_content': value,
       if (instance.refusal case final value?) 'refusal': value,
       if (instance.name case final value?) 'name': value,
       if (instance.toolCalls?.map((e) => e.toJson()).toList() case final value?)
