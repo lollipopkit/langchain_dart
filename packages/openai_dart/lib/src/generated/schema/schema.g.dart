@@ -15,14 +15,14 @@ _$CreateCompletionRequestImpl _$$CreateCompletionRequestImplFromJson(
       prompt: const _CompletionPromptConverter().fromJson(json['prompt']),
       bestOf: (json['best_of'] as num?)?.toInt(),
       echo: json['echo'] as bool? ?? false,
-      frequencyPenalty: (json['frequency_penalty'] as num?)?.toDouble() ?? 0.0,
+      frequencyPenalty: (json['frequency_penalty'] as num?)?.toDouble(),
       logitBias: (json['logit_bias'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toInt()),
       ),
       logprobs: (json['logprobs'] as num?)?.toInt(),
       maxTokens: (json['max_tokens'] as num?)?.toInt() ?? 16,
       n: (json['n'] as num?)?.toInt() ?? 1,
-      presencePenalty: (json['presence_penalty'] as num?)?.toDouble() ?? 0.0,
+      presencePenalty: (json['presence_penalty'] as num?)?.toDouble(),
       seed: (json['seed'] as num?)?.toInt(),
       stop: const _CompletionStopConverter().fromJson(json['stop']),
       stream: json['stream'] as bool? ?? false,
@@ -292,7 +292,8 @@ _$CreateChatCompletionRequestImpl _$$CreateChatCompletionRequestImplFromJson(
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      frequencyPenalty: (json['frequency_penalty'] as num?)?.toDouble() ?? 0.0,
+      frequencyPenalty: (json['frequency_penalty'] as num?)?.toDouble(),
+      resoningEffort: json['resoning_effort'] as String?,
       logitBias: (json['logit_bias'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toInt()),
       ),
@@ -312,7 +313,7 @@ _$CreateChatCompletionRequestImpl _$$CreateChatCompletionRequestImplFromJson(
           ? null
           : ChatCompletionAudioOptions.fromJson(
               json['audio'] as Map<String, dynamic>),
-      presencePenalty: (json['presence_penalty'] as num?)?.toDouble() ?? 0.0,
+      presencePenalty: (json['presence_penalty'] as num?)?.toDouble(),
       responseFormat: json['response_format'] == null
           ? null
           : ResponseFormat.fromJson(
@@ -352,6 +353,7 @@ Map<String, dynamic> _$$CreateChatCompletionRequestImplToJson(
       if (instance.metadata case final value?) 'metadata': value,
       if (instance.frequencyPenalty case final value?)
         'frequency_penalty': value,
+      if (instance.resoningEffort case final value?) 'resoning_effort': value,
       if (instance.logitBias case final value?) 'logit_bias': value,
       if (instance.logprobs case final value?) 'logprobs': value,
       if (instance.topLogprobs case final value?) 'top_logprobs': value,

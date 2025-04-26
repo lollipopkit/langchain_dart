@@ -40,7 +40,6 @@ class CreateCompletionRequest with _$CreateCompletionRequest {
     ///
     /// [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation)
     @JsonKey(name: 'frequency_penalty', includeIfNull: false)
-    @Default(0.0)
     double? frequencyPenalty,
 
     /// Modify the likelihood of specified tokens appearing in the completion.
@@ -72,7 +71,6 @@ class CreateCompletionRequest with _$CreateCompletionRequest {
     ///
     /// [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation)
     @JsonKey(name: 'presence_penalty', includeIfNull: false)
-    @Default(0.0)
     double? presencePenalty,
 
     /// If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.
@@ -140,7 +138,6 @@ class CreateCompletionRequest with _$CreateCompletionRequest {
   /// Validation constants
   static const bestOfMinValue = 0;
   static const bestOfMaxValue = 20;
-  static const frequencyPenaltyDefaultValue = 0.0;
   static const frequencyPenaltyMinValue = -2.0;
   static const frequencyPenaltyMaxValue = 2.0;
   static const logprobsMinValue = 0;
@@ -150,7 +147,6 @@ class CreateCompletionRequest with _$CreateCompletionRequest {
   static const nDefaultValue = 1;
   static const nMinValue = 1;
   static const nMaxValue = 128;
-  static const presencePenaltyDefaultValue = 0.0;
   static const presencePenaltyMinValue = -2.0;
   static const presencePenaltyMaxValue = 2.0;
   static const temperatureDefaultValue = 1.0;

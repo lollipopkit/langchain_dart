@@ -504,14 +504,14 @@ class _$CreateCompletionRequestImpl extends _CreateCompletionRequest {
       @JsonKey(name: 'best_of', includeIfNull: false) this.bestOf,
       @JsonKey(includeIfNull: false) this.echo = false,
       @JsonKey(name: 'frequency_penalty', includeIfNull: false)
-      this.frequencyPenalty = 0.0,
+      this.frequencyPenalty,
       @JsonKey(name: 'logit_bias', includeIfNull: false)
       final Map<String, int>? logitBias,
       @JsonKey(includeIfNull: false) this.logprobs,
       @JsonKey(name: 'max_tokens', includeIfNull: false) this.maxTokens = 16,
       @JsonKey(includeIfNull: false) this.n = 1,
       @JsonKey(name: 'presence_penalty', includeIfNull: false)
-      this.presencePenalty = 0.0,
+      this.presencePenalty,
       @JsonKey(includeIfNull: false) this.seed,
       @_CompletionStopConverter() @JsonKey(includeIfNull: false) this.stop,
       @JsonKey(includeIfNull: false) this.stream = false,
@@ -3570,6 +3570,10 @@ mixin _$CreateChatCompletionRequest {
   @JsonKey(name: 'frequency_penalty', includeIfNull: false)
   double? get frequencyPenalty => throw _privateConstructorUsedError;
 
+  /// The reasoning effort to use for the completion.
+  @JsonKey(name: 'resoning_effort', includeIfNull: false)
+  String? get resoningEffort => throw _privateConstructorUsedError;
+
   /// Modify the likelihood of specified tokens appearing in the completion.
   ///
   /// Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias
@@ -3779,6 +3783,8 @@ abstract class $CreateChatCompletionRequestCopyWith<$Res> {
       @JsonKey(includeIfNull: false) Map<String, String>? metadata,
       @JsonKey(name: 'frequency_penalty', includeIfNull: false)
       double? frequencyPenalty,
+      @JsonKey(name: 'resoning_effort', includeIfNull: false)
+      String? resoningEffort,
       @JsonKey(name: 'logit_bias', includeIfNull: false)
       Map<String, int>? logitBias,
       @JsonKey(includeIfNull: false) bool? logprobs,
@@ -3851,6 +3857,7 @@ class _$CreateChatCompletionRequestCopyWithImpl<$Res,
     Object? store = freezed,
     Object? metadata = freezed,
     Object? frequencyPenalty = freezed,
+    Object? resoningEffort = freezed,
     Object? logitBias = freezed,
     Object? logprobs = freezed,
     Object? topLogprobs = freezed,
@@ -3897,6 +3904,10 @@ class _$CreateChatCompletionRequestCopyWithImpl<$Res,
           ? _value.frequencyPenalty
           : frequencyPenalty // ignore: cast_nullable_to_non_nullable
               as double?,
+      resoningEffort: freezed == resoningEffort
+          ? _value.resoningEffort
+          : resoningEffort // ignore: cast_nullable_to_non_nullable
+              as String?,
       logitBias: freezed == logitBias
           ? _value.logitBias
           : logitBias // ignore: cast_nullable_to_non_nullable
@@ -4124,6 +4135,8 @@ abstract class _$$CreateChatCompletionRequestImplCopyWith<$Res>
       @JsonKey(includeIfNull: false) Map<String, String>? metadata,
       @JsonKey(name: 'frequency_penalty', includeIfNull: false)
       double? frequencyPenalty,
+      @JsonKey(name: 'resoning_effort', includeIfNull: false)
+      String? resoningEffort,
       @JsonKey(name: 'logit_bias', includeIfNull: false)
       Map<String, int>? logitBias,
       @JsonKey(includeIfNull: false) bool? logprobs,
@@ -4203,6 +4216,7 @@ class __$$CreateChatCompletionRequestImplCopyWithImpl<$Res>
     Object? store = freezed,
     Object? metadata = freezed,
     Object? frequencyPenalty = freezed,
+    Object? resoningEffort = freezed,
     Object? logitBias = freezed,
     Object? logprobs = freezed,
     Object? topLogprobs = freezed,
@@ -4249,6 +4263,10 @@ class __$$CreateChatCompletionRequestImplCopyWithImpl<$Res>
           ? _value.frequencyPenalty
           : frequencyPenalty // ignore: cast_nullable_to_non_nullable
               as double?,
+      resoningEffort: freezed == resoningEffort
+          ? _value.resoningEffort
+          : resoningEffort // ignore: cast_nullable_to_non_nullable
+              as String?,
       logitBias: freezed == logitBias
           ? _value._logitBias
           : logitBias // ignore: cast_nullable_to_non_nullable
@@ -4358,7 +4376,9 @@ class _$CreateChatCompletionRequestImpl extends _CreateChatCompletionRequest {
       @JsonKey(includeIfNull: false) this.store,
       @JsonKey(includeIfNull: false) final Map<String, String>? metadata,
       @JsonKey(name: 'frequency_penalty', includeIfNull: false)
-      this.frequencyPenalty = 0.0,
+      this.frequencyPenalty,
+      @JsonKey(name: 'resoning_effort', includeIfNull: false)
+      this.resoningEffort,
       @JsonKey(name: 'logit_bias', includeIfNull: false)
       final Map<String, int>? logitBias,
       @JsonKey(includeIfNull: false) this.logprobs,
@@ -4372,7 +4392,7 @@ class _$CreateChatCompletionRequestImpl extends _CreateChatCompletionRequest {
       @JsonKey(includeIfNull: false) this.prediction,
       @JsonKey(includeIfNull: false) this.audio,
       @JsonKey(name: 'presence_penalty', includeIfNull: false)
-      this.presencePenalty = 0.0,
+      this.presencePenalty,
       @JsonKey(name: 'response_format', includeIfNull: false)
       this.responseFormat,
       @JsonKey(includeIfNull: false) this.seed,
@@ -4464,6 +4484,11 @@ class _$CreateChatCompletionRequestImpl extends _CreateChatCompletionRequest {
   @override
   @JsonKey(name: 'frequency_penalty', includeIfNull: false)
   final double? frequencyPenalty;
+
+  /// The reasoning effort to use for the completion.
+  @override
+  @JsonKey(name: 'resoning_effort', includeIfNull: false)
+  final String? resoningEffort;
 
   /// Modify the likelihood of specified tokens appearing in the completion.
   ///
@@ -4716,7 +4741,7 @@ class _$CreateChatCompletionRequestImpl extends _CreateChatCompletionRequest {
 
   @override
   String toString() {
-    return 'CreateChatCompletionRequest(model: $model, messages: $messages, store: $store, metadata: $metadata, frequencyPenalty: $frequencyPenalty, logitBias: $logitBias, logprobs: $logprobs, topLogprobs: $topLogprobs, maxTokens: $maxTokens, maxCompletionTokens: $maxCompletionTokens, n: $n, modalities: $modalities, prediction: $prediction, audio: $audio, presencePenalty: $presencePenalty, responseFormat: $responseFormat, seed: $seed, serviceTier: $serviceTier, stop: $stop, stream: $stream, streamOptions: $streamOptions, temperature: $temperature, topP: $topP, tools: $tools, toolChoice: $toolChoice, parallelToolCalls: $parallelToolCalls, user: $user, functionCall: $functionCall, functions: $functions)';
+    return 'CreateChatCompletionRequest(model: $model, messages: $messages, store: $store, metadata: $metadata, frequencyPenalty: $frequencyPenalty, resoningEffort: $resoningEffort, logitBias: $logitBias, logprobs: $logprobs, topLogprobs: $topLogprobs, maxTokens: $maxTokens, maxCompletionTokens: $maxCompletionTokens, n: $n, modalities: $modalities, prediction: $prediction, audio: $audio, presencePenalty: $presencePenalty, responseFormat: $responseFormat, seed: $seed, serviceTier: $serviceTier, stop: $stop, stream: $stream, streamOptions: $streamOptions, temperature: $temperature, topP: $topP, tools: $tools, toolChoice: $toolChoice, parallelToolCalls: $parallelToolCalls, user: $user, functionCall: $functionCall, functions: $functions)';
   }
 
   @override
@@ -4730,6 +4755,8 @@ class _$CreateChatCompletionRequestImpl extends _CreateChatCompletionRequest {
             const DeepCollectionEquality().equals(other._metadata, _metadata) &&
             (identical(other.frequencyPenalty, frequencyPenalty) ||
                 other.frequencyPenalty == frequencyPenalty) &&
+            (identical(other.resoningEffort, resoningEffort) ||
+                other.resoningEffort == resoningEffort) &&
             const DeepCollectionEquality()
                 .equals(other._logitBias, _logitBias) &&
             (identical(other.logprobs, logprobs) ||
@@ -4781,6 +4808,7 @@ class _$CreateChatCompletionRequestImpl extends _CreateChatCompletionRequest {
         store,
         const DeepCollectionEquality().hash(_metadata),
         frequencyPenalty,
+        resoningEffort,
         const DeepCollectionEquality().hash(_logitBias),
         logprobs,
         topLogprobs,
@@ -4834,6 +4862,8 @@ abstract class _CreateChatCompletionRequest
       @JsonKey(includeIfNull: false) final Map<String, String>? metadata,
       @JsonKey(name: 'frequency_penalty', includeIfNull: false)
       final double? frequencyPenalty,
+      @JsonKey(name: 'resoning_effort', includeIfNull: false)
+      final String? resoningEffort,
       @JsonKey(name: 'logit_bias', includeIfNull: false)
       final Map<String, int>? logitBias,
       @JsonKey(includeIfNull: false) final bool? logprobs,
@@ -4917,6 +4947,11 @@ abstract class _CreateChatCompletionRequest
   @override
   @JsonKey(name: 'frequency_penalty', includeIfNull: false)
   double? get frequencyPenalty;
+
+  /// The reasoning effort to use for the completion.
+  @override
+  @JsonKey(name: 'resoning_effort', includeIfNull: false)
+  String? get resoningEffort;
 
   /// Modify the likelihood of specified tokens appearing in the completion.
   ///

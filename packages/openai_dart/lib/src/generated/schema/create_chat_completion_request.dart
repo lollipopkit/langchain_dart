@@ -40,8 +40,11 @@ class CreateChatCompletionRequest with _$CreateChatCompletionRequest {
     ///
     /// [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation)
     @JsonKey(name: 'frequency_penalty', includeIfNull: false)
-    @Default(0.0)
     double? frequencyPenalty,
+
+    /// The reasoning effort to use for the completion.
+    @JsonKey(name: 'resoning_effort', includeIfNull: false)
+    String? resoningEffort,
 
     /// Modify the likelihood of specified tokens appearing in the completion.
     ///
@@ -95,7 +98,6 @@ class CreateChatCompletionRequest with _$CreateChatCompletionRequest {
     ///
     /// [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation)
     @JsonKey(name: 'presence_penalty', includeIfNull: false)
-    @Default(0.0)
     double? presencePenalty,
 
     /// An object specifying the format that the model must output. Compatible with
@@ -222,6 +224,7 @@ class CreateChatCompletionRequest with _$CreateChatCompletionRequest {
     'store',
     'metadata',
     'frequency_penalty',
+    'resoning_effort',
     'logit_bias',
     'logprobs',
     'top_logprobs',
@@ -249,7 +252,6 @@ class CreateChatCompletionRequest with _$CreateChatCompletionRequest {
   ];
 
   /// Validation constants
-  static const frequencyPenaltyDefaultValue = 0.0;
   static const frequencyPenaltyMinValue = -2.0;
   static const frequencyPenaltyMaxValue = 2.0;
   static const topLogprobsMinValue = 0;
@@ -257,7 +259,6 @@ class CreateChatCompletionRequest with _$CreateChatCompletionRequest {
   static const nDefaultValue = 1;
   static const nMinValue = 1;
   static const nMaxValue = 128;
-  static const presencePenaltyDefaultValue = 0.0;
   static const presencePenaltyMinValue = -2.0;
   static const presencePenaltyMaxValue = 2.0;
   static const temperatureDefaultValue = 1.0;
@@ -318,6 +319,7 @@ class CreateChatCompletionRequest with _$CreateChatCompletionRequest {
       'store': store,
       'metadata': metadata,
       'frequency_penalty': frequencyPenalty,
+      'resoning_effort': resoningEffort,
       'logit_bias': logitBias,
       'logprobs': logprobs,
       'top_logprobs': topLogprobs,
