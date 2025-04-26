@@ -1030,6 +1030,7 @@ _$ChatCompletionStreamResponseDeltaImpl
               _$ChatCompletionMessageRoleEnumMap, json['role'],
               unknownValue: JsonKey.nullForUndefinedEnumValue),
           content: json['content'] as String?,
+          reasoningContent: json['reasoning_content'] as String?,
           refusal: json['refusal'] as String?,
           toolCalls: (json['tool_calls'] as List<dynamic>?)
               ?.map((e) => ChatCompletionStreamMessageToolCallChunk.fromJson(
@@ -1051,6 +1052,8 @@ Map<String, dynamic> _$$ChatCompletionStreamResponseDeltaImplToJson(
       if (_$ChatCompletionMessageRoleEnumMap[instance.role] case final value?)
         'role': value,
       if (instance.content case final value?) 'content': value,
+      if (instance.reasoningContent case final value?)
+        'reasoning_content': value,
       if (instance.refusal case final value?) 'refusal': value,
       if (instance.toolCalls?.map((e) => e.toJson()).toList() case final value?)
         'tool_calls': value,
