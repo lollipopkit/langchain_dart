@@ -30,7 +30,11 @@ class CreateImageRequest with _$CreateImageRequest {
     @JsonKey(includeIfNull: false) @Default(1) int? n,
 
     /// The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. This param is only supported for `dall-e-3`.
-    @Default(ImageQuality.standard) ImageQuality quality,
+    @JsonKey(
+      includeIfNull: false,
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
+    )
+    ImageQuality? quality,
 
     /// The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
     @JsonKey(
@@ -46,7 +50,6 @@ class CreateImageRequest with _$CreateImageRequest {
       includeIfNull: false,
       unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
     )
-    @Default(ImageSize.v1024x1024)
     ImageSize? size,
 
     /// The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. This param is only supported for `dall-e-3`.
@@ -54,7 +57,6 @@ class CreateImageRequest with _$CreateImageRequest {
       includeIfNull: false,
       unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
     )
-    @Default(ImageStyle.vivid)
     ImageStyle? style,
 
     /// A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](https://platform.openai.com/docs/guides/safety-best-practices#end-user-ids).

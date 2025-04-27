@@ -1793,18 +1793,16 @@ _$CreateImageRequestImpl _$$CreateImageRequestImplFromJson(
           ? const CreateImageRequestModelString('dall-e-2')
           : const _CreateImageRequestModelConverter().fromJson(json['model']),
       n: (json['n'] as num?)?.toInt() ?? 1,
-      quality: $enumDecodeNullable(_$ImageQualityEnumMap, json['quality']) ??
-          ImageQuality.standard,
+      quality: $enumDecodeNullable(_$ImageQualityEnumMap, json['quality'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       responseFormat: $enumDecodeNullable(
               _$ImageResponseFormatEnumMap, json['response_format'],
               unknownValue: JsonKey.nullForUndefinedEnumValue) ??
           ImageResponseFormat.url,
       size: $enumDecodeNullable(_$ImageSizeEnumMap, json['size'],
-              unknownValue: JsonKey.nullForUndefinedEnumValue) ??
-          ImageSize.v1024x1024,
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       style: $enumDecodeNullable(_$ImageStyleEnumMap, json['style'],
-              unknownValue: JsonKey.nullForUndefinedEnumValue) ??
-          ImageStyle.vivid,
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       user: json['user'] as String?,
     );
 
@@ -1816,7 +1814,8 @@ Map<String, dynamic> _$$CreateImageRequestImplToJson(
           case final value?)
         'model': value,
       if (instance.n case final value?) 'n': value,
-      'quality': _$ImageQualityEnumMap[instance.quality]!,
+      if (_$ImageQualityEnumMap[instance.quality] case final value?)
+        'quality': value,
       if (_$ImageResponseFormatEnumMap[instance.responseFormat]
           case final value?)
         'response_format': value,
@@ -1884,7 +1883,7 @@ Map<String, dynamic> _$$CreateImageRequestModelStringImplToJson(
 
 _$ImagesResponseImpl _$$ImagesResponseImplFromJson(Map<String, dynamic> json) =>
     _$ImagesResponseImpl(
-      created: (json['created'] as num).toInt(),
+      created: (json['created'] as num?)?.toInt(),
       data: (json['data'] as List<dynamic>)
           .map((e) => Image.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -1893,7 +1892,7 @@ _$ImagesResponseImpl _$$ImagesResponseImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ImagesResponseImplToJson(
         _$ImagesResponseImpl instance) =>
     <String, dynamic>{
-      'created': instance.created,
+      if (instance.created case final value?) 'created': value,
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 

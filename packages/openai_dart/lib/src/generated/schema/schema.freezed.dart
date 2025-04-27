@@ -21208,7 +21208,9 @@ mixin _$CreateImageRequest {
   int? get n => throw _privateConstructorUsedError;
 
   /// The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. This param is only supported for `dall-e-3`.
-  ImageQuality get quality => throw _privateConstructorUsedError;
+  @JsonKey(
+      includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  ImageQuality? get quality => throw _privateConstructorUsedError;
 
   /// The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
   @JsonKey(
@@ -21253,7 +21255,10 @@ abstract class $CreateImageRequestCopyWith<$Res> {
       @JsonKey(includeIfNull: false)
       CreateImageRequestModel? model,
       @JsonKey(includeIfNull: false) int? n,
-      ImageQuality quality,
+      @JsonKey(
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      ImageQuality? quality,
       @JsonKey(
           name: 'response_format',
           includeIfNull: false,
@@ -21290,7 +21295,7 @@ class _$CreateImageRequestCopyWithImpl<$Res, $Val extends CreateImageRequest>
     Object? prompt = null,
     Object? model = freezed,
     Object? n = freezed,
-    Object? quality = null,
+    Object? quality = freezed,
     Object? responseFormat = freezed,
     Object? size = freezed,
     Object? style = freezed,
@@ -21309,10 +21314,10 @@ class _$CreateImageRequestCopyWithImpl<$Res, $Val extends CreateImageRequest>
           ? _value.n
           : n // ignore: cast_nullable_to_non_nullable
               as int?,
-      quality: null == quality
+      quality: freezed == quality
           ? _value.quality
           : quality // ignore: cast_nullable_to_non_nullable
-              as ImageQuality,
+              as ImageQuality?,
       responseFormat: freezed == responseFormat
           ? _value.responseFormat
           : responseFormat // ignore: cast_nullable_to_non_nullable
@@ -21361,7 +21366,10 @@ abstract class _$$CreateImageRequestImplCopyWith<$Res>
       @JsonKey(includeIfNull: false)
       CreateImageRequestModel? model,
       @JsonKey(includeIfNull: false) int? n,
-      ImageQuality quality,
+      @JsonKey(
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      ImageQuality? quality,
       @JsonKey(
           name: 'response_format',
           includeIfNull: false,
@@ -21397,7 +21405,7 @@ class __$$CreateImageRequestImplCopyWithImpl<$Res>
     Object? prompt = null,
     Object? model = freezed,
     Object? n = freezed,
-    Object? quality = null,
+    Object? quality = freezed,
     Object? responseFormat = freezed,
     Object? size = freezed,
     Object? style = freezed,
@@ -21416,10 +21424,10 @@ class __$$CreateImageRequestImplCopyWithImpl<$Res>
           ? _value.n
           : n // ignore: cast_nullable_to_non_nullable
               as int?,
-      quality: null == quality
+      quality: freezed == quality
           ? _value.quality
           : quality // ignore: cast_nullable_to_non_nullable
-              as ImageQuality,
+              as ImageQuality?,
       responseFormat: freezed == responseFormat
           ? _value.responseFormat
           : responseFormat // ignore: cast_nullable_to_non_nullable
@@ -21449,7 +21457,10 @@ class _$CreateImageRequestImpl extends _CreateImageRequest {
       @JsonKey(includeIfNull: false)
       this.model = const CreateImageRequestModelString('dall-e-2'),
       @JsonKey(includeIfNull: false) this.n = 1,
-      this.quality = ImageQuality.standard,
+      @JsonKey(
+          includeIfNull: false,
+          unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+      this.quality,
       @JsonKey(
           name: 'response_format',
           includeIfNull: false,
@@ -21458,11 +21469,11 @@ class _$CreateImageRequestImpl extends _CreateImageRequest {
       @JsonKey(
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-      this.size = ImageSize.v1024x1024,
+      this.size,
       @JsonKey(
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-      this.style = ImageStyle.vivid,
+      this.style,
       @JsonKey(includeIfNull: false) this.user})
       : super._();
 
@@ -21486,8 +21497,9 @@ class _$CreateImageRequestImpl extends _CreateImageRequest {
 
   /// The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. This param is only supported for `dall-e-3`.
   @override
-  @JsonKey()
-  final ImageQuality quality;
+  @JsonKey(
+      includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final ImageQuality? quality;
 
   /// The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
   @override
@@ -21564,7 +21576,10 @@ abstract class _CreateImageRequest extends CreateImageRequest {
           @JsonKey(includeIfNull: false)
           final CreateImageRequestModel? model,
           @JsonKey(includeIfNull: false) final int? n,
-          final ImageQuality quality,
+          @JsonKey(
+              includeIfNull: false,
+              unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+          final ImageQuality? quality,
           @JsonKey(
               name: 'response_format',
               includeIfNull: false,
@@ -21602,7 +21617,9 @@ abstract class _CreateImageRequest extends CreateImageRequest {
 
   /// The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. This param is only supported for `dall-e-3`.
   @override
-  ImageQuality get quality;
+  @JsonKey(
+      includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  ImageQuality? get quality;
 
   /// The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
   @override
@@ -22072,7 +22089,8 @@ ImagesResponse _$ImagesResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ImagesResponse {
   /// The Unix timestamp (in seconds) when the image was created.
-  int get created => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
+  int? get created => throw _privateConstructorUsedError;
 
   /// The list of images generated by the model.
   List<Image> get data => throw _privateConstructorUsedError;
@@ -22093,7 +22111,7 @@ abstract class $ImagesResponseCopyWith<$Res> {
           ImagesResponse value, $Res Function(ImagesResponse) then) =
       _$ImagesResponseCopyWithImpl<$Res, ImagesResponse>;
   @useResult
-  $Res call({int created, List<Image> data});
+  $Res call({@JsonKey(includeIfNull: false) int? created, List<Image> data});
 }
 
 /// @nodoc
@@ -22111,14 +22129,14 @@ class _$ImagesResponseCopyWithImpl<$Res, $Val extends ImagesResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = null,
+    Object? created = freezed,
     Object? data = null,
   }) {
     return _then(_value.copyWith(
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -22135,7 +22153,7 @@ abstract class _$$ImagesResponseImplCopyWith<$Res>
       __$$ImagesResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int created, List<Image> data});
+  $Res call({@JsonKey(includeIfNull: false) int? created, List<Image> data});
 }
 
 /// @nodoc
@@ -22151,14 +22169,14 @@ class __$$ImagesResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? created = null,
+    Object? created = freezed,
     Object? data = null,
   }) {
     return _then(_$ImagesResponseImpl(
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -22171,7 +22189,8 @@ class __$$ImagesResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ImagesResponseImpl extends _ImagesResponse {
   const _$ImagesResponseImpl(
-      {required this.created, required final List<Image> data})
+      {@JsonKey(includeIfNull: false) this.created,
+      required final List<Image> data})
       : _data = data,
         super._();
 
@@ -22180,7 +22199,8 @@ class _$ImagesResponseImpl extends _ImagesResponse {
 
   /// The Unix timestamp (in seconds) when the image was created.
   @override
-  final int created;
+  @JsonKey(includeIfNull: false)
+  final int? created;
 
   /// The list of images generated by the model.
   final List<Image> _data;
@@ -22231,7 +22251,7 @@ class _$ImagesResponseImpl extends _ImagesResponse {
 
 abstract class _ImagesResponse extends ImagesResponse {
   const factory _ImagesResponse(
-      {required final int created,
+      {@JsonKey(includeIfNull: false) final int? created,
       required final List<Image> data}) = _$ImagesResponseImpl;
   const _ImagesResponse._() : super._();
 
@@ -22240,7 +22260,8 @@ abstract class _ImagesResponse extends ImagesResponse {
 
   /// The Unix timestamp (in seconds) when the image was created.
   @override
-  int get created;
+  @JsonKey(includeIfNull: false)
+  int? get created;
 
   /// The list of images generated by the model.
   @override
